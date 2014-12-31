@@ -1,24 +1,21 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{% static 'styles/css/styles.css' %}" rel="stylesheet"/>
-    <script type="text/javascript" src="{% static 'js/dist/lib.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/dist/main.js' %}"></script>
-    <title>Knowman project</title>    
-  </head>
-  <body>
-    <div class="main row">
-      <div class="side-menu">
-        <side-menu></side-menu>
-      </div>
-      <div class="content">
-        <ui-view></ui-view>
-      </div>
-    </div> 
-    <footer-block></footer-block>    
-  </body>
-</html>
+<div>
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">Description</div>
+			<div class="panel-body"></div>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">Join us</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<a ui-sref="login" class="btn btn-success btn-md btn-block">Log in</a>
+				</div>
+				<div class="form-group">
+					<a ui-sref="signup" class="btn btn-warning btn-md btn-block">Sign up</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
