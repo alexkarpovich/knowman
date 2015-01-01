@@ -11,6 +11,7 @@ module.exports = function (basePath, min) {
         // Note: angular-file-upload-shim.js MUST BE PLACED BEFORE angular.js and angular-file-upload.js AFTER angular.js
         //basePath + '/ng-file-upload/angular-file-upload-shim' + target + '.js',
         basePath + '/angular/angular' + target + '.js',
+        basePath + '/angular-cookies/angular-cookies' + target + '.js',
         basePath + '/jquery/dist/jquery' + target + '.js',
         basePath + '/bootstrap/dist/js/bootstrap' + target + '.js',        
         //basePath + '/ng-file-upload/angular-file-upload' + target + '.js',
