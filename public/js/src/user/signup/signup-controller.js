@@ -5,8 +5,8 @@ module.exports = ['$scope', '$state','$http', '$cookies',
 		$scope.signupData = {
 			username: '',
 			email: '',
-			password: '',
-			confirmPassword: ''
+			password1: '',
+			password2: ''
 		};
 
 		$scope.csrftoken = $cookies.csrftoken;
