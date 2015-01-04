@@ -10,7 +10,7 @@
     <script type="text/javascript" src="{% static 'js/dist/main.js' %}"></script>
     <script type="text/javascript">
       window.knowman = {
-        currentUser: '',
+        currentUser: '{{currentUser}}',
         csrftoken: '{{csrf_token}}'
       };
     </script>

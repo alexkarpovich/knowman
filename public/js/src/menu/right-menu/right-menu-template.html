@@ -1,9 +1,9 @@
 <div class="right-bar" ng-click="showSubmenu()">	
 	<ul class="profile-image" style="background-image: url('http://img.labnol.org/di/bo.jpg')"></ul>
 	<ul></ul>
-	<div class="right-submenu" ng-show="isSubmenuShowd">
+	<div class="right-submenu" ng-show="isSubmenuShowd && currentUser">
 		<h4 class="submenu-heading"> User submenu </h4>
-		<ul class="username" ui-sref="user.profile">Logged in user</ul>
+		<ul class="username" ui-sref="user.profile">{{currentUser.username}}</ul>
 		<ul ui-sref="user.profile"><span class="fa fa-edit fa-2x"></span>Profile</ul>
 		<ul ui-sref="user.logout"><span class="fa fa-sign-out fa-2x"></span>Log out</ul>
 	</div>

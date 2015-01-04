@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = ['$scope', '$state','$http', '$cookies',
-	function($scope, $state, $http, $cookies) {
+module.exports = ['$scope', '$state','$http', '$cookies', 'userData', 
+	function($scope, $state, $http, $cookies, userData) {
 		$scope.signupData = {
 			email: '',
 			username: '',
@@ -17,6 +17,7 @@ module.exports = ['$scope', '$state','$http', '$cookies',
 				method: 'POST',
 				data: $scope.signupData
 			}).success(function(data) {
+				userData.setCurrentUser(data.user)
 				$state.go('home');
 			}).error(function(data){
 				console.log(data);

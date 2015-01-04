@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from join.forms import RegistrationForm
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
+from django.core import serializers
 import json
 
 def signup(request):
@@ -15,8 +15,9 @@ def signup(request):
 			userCreationForm.save()
 			user = authenticate(username=data['username'], password=data['password2'])
 			if user.is_active:
-				auth_login(request, user)
-				return JsonResponse({'user':''},status=200)
+				auth_login(request, user)			
+				userArray = getUserArray(user)	
+				return JsonResponse({'user':userArray},status=200)
 			else:
 				return JsonResponse({'errors': 'This account is disabled'}, status=500)
 		else:
@@ -30,8 +31,11 @@ def login(request):
 			user = authenticate(username=data['username'], password=data['password'])
 			if user is not None:
 				if user.is_active:
+					if not data['rememberme']:
+						request.session.set_expiry(0)
 					auth_login(request, user)
-					return JsonResponse({'user':''}, status=200)
+					userArray = getUserArray(user)
+					return JsonResponse({'user':userArray}, status=200)
 				else:
 					return JsonResponse({'errors': 'This account is disabled'}, status=500)
 			else:
@@ -47,3 +51,10 @@ def logout(request):
 
 def profile(request):
 	print 'profile'
+
+def getUserArray(userModel):
+	baseData = serializers.serialize('json', [userModel])
+	dataArray = json.loads(baseData)
+	userData = dataArray[0]['fields']
+
+	return userData

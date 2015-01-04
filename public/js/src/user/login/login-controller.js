@@ -4,7 +4,8 @@ module.exports = ['$scope', '$state', '$http', 'userData',
 	function ($scope, $state, $http, userData) {
 		$scope.loginData = {
 			username: '',
-			password: ''
+			password: '',
+			rememberme: false
 		};
 
 		$scope.login = function() {

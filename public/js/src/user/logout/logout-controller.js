@@ -7,6 +7,7 @@ module.exports = ['$state', '$http','userData',
 			method: 'post',
 			data:{}
 		}).success(function(data){
+			userData.setCurrentUser({});			
 			$state.go('home');
 		}).error(function(){});
 	}

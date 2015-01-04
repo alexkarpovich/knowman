@@ -1,11 +1,14 @@
 'use strict';
 
-module.exports = ['$scope', '$state',
-	function ($scope, $state) {
+module.exports = ['$scope', '$state', 'userData',
+	function ($scope, $state, userData) {
 		$scope.isSubmenuShowd = false;
 
+		$scope.currentUser = userData.getCurrentUser();
+		
 		$scope.showSubmenu = function() {
-			$scope.isSubmenuShowd = $scope.isSubmenuShowd?false:true;
+			$scope.currentUser = userData.getCurrentUser();
+			$scope.isSubmenuShowd = $scope.isSubmenuShowd?false:true;			
 		};	
 	}
 ];

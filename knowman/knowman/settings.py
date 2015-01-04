@@ -26,6 +26,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_COOKIE_AGE = 360
+
 TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
