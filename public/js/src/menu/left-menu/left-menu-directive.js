@@ -5,8 +5,8 @@ module.exports = [
 		return {
 			restrict: 'E',
 			replace: true,
-			template: require('./menu-template.html'),
-			controller: require('./menu-controller'),
+			template: require('./left-menu-template.html'),
+			controller: require('./left-menu-controller'),
 			scope: {}
 		};
 	}

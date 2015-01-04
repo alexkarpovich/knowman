@@ -16,7 +16,9 @@ module.exports = ['$scope', '$state', '$http', 'userData',
 				userData.setCurrentUser(data.user);
 				$state.go('home');
 			}).error(function(data){
-
+				if(data.errors) {
+					alert(data.errors);
+				}
 			});
 		};
 	}

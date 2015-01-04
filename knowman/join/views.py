@@ -1,23 +1,49 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.models import User
+from join.forms import RegistrationForm
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
+import json
 
 def signup(request):
 	if request.method == 'POST':
-		print request.POST
-		signupForm = UserCreationForm(request.POST)
-		print signupForm
-		signupForm.save()
-	return HttpResponse('Hello')
+		data = json.loads(request.body)
+		userCreationForm = UserCreationForm(data)
+		if userCreationForm.is_valid():
+			userCreationForm.save()
+			user = authenticate(username=data['username'], password=data['password2'])
+			if user.is_active:
+				auth_login(request, user)
+				return JsonResponse({'user':''},status=200)
+			else:
+				return JsonResponse({'errors': 'This account is disabled'}, status=500)
+		else:
+			return JsonResponse({'errors': 'Invalid login'}, status=500)
 
 def login(request):
 	if request.method == 'POST':
-		print request.POST
-		#userCreationForm = UserCreationForm(request.POST)
-	return HttpResponse('Hello')
+		data = json.loads(request.body)
+		authForm = AuthenticationForm(data=data)
+		if authForm.is_valid():
+			user = authenticate(username=data['username'], password=data['password'])
+			if user is not None:
+				if user.is_active:
+					auth_login(request, user)
+					return JsonResponse({'user':''}, status=200)
+				else:
+					return JsonResponse({'errors': 'This account is disabled'}, status=500)
+			else:
+				return JsonResponse({'errors':'Invalid login'}, status=500)	
+		else:
+			return JsonResponse({'errors':'Invalid username or password'}, status=500)	
+
 
 def logout(request):
-	print 'logout'
+	if request.method == 'POST':
+		auth_logout(request)
+		return JsonResponse({},status=200)
 
 def profile(request):
 	print 'profile'

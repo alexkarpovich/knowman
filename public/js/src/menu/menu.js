@@ -2,5 +2,10 @@
 
 var angular = require('angular');
 
-angular.module('Menu', [])
-	.directive('sideMenu', require('./menu-directive'));
+require('./left-menu/left-menu');
+require('./right-menu/right-menu');
+
+angular.module('Menu', [
+		'LeftMenu',
+		'RightMenu'
+	]);

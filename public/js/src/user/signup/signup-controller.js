@@ -3,8 +3,8 @@
 module.exports = ['$scope', '$state','$http', '$cookies',
 	function($scope, $state, $http, $cookies) {
 		$scope.signupData = {
-			username: '',
 			email: '',
+			username: '',
 			password1: '',
 			password2: ''
 		};
@@ -19,7 +19,7 @@ module.exports = ['$scope', '$state','$http', '$cookies',
 			}).success(function(data) {
 				$state.go('home');
 			}).error(function(data){
-
+				console.log(data);
 			});
 		};
 	}

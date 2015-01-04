@@ -19,7 +19,7 @@ domready(function(){
 	.config(['$stateProvider', '$httpProvider', '$cookiesProvider', 'userDataProvider',
 		function ($stateProvider, $httpProvider, $cookies, userDataProvider) {	
 			$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-	        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';					
+	        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';	
 			userDataProvider.userData(window.knowman);
 			$stateProvider
 				.state('home', {
@@ -28,9 +28,9 @@ domready(function(){
 				});
 		}
 	])
-	.run(['$http','$cookies',
-	    function($http, $cookies) {
-	        $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;	        
+	.run(['$http','$cookies', 'userData',
+	    function($http, $cookies, userData) {
+	    	$http.defaults.headers.post['X-CSRFToken'] = userData.getCsrf();	 	            
 	    }
    	]);;
 

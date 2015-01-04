@@ -5,22 +5,33 @@ html,body {
 	height:100%;
 }
 
-.main, .side-menu,.content {
+.main, .side-menu,.content,.user-bar {
 	height: 100%;
 }
 .main {
 	margin:0;
+	position:relative;
 }
 .side-menu {
 	width: 70px;
 	position: absolute;
 	background: #457b4a;
-	border-right:3px solid #B4C3B6
+	border-right:3px solid #B4C3B6;
+	
 }
 .content {
 	background: #e8ede9;
 	padding-left:70px;
 	padding-top:10px;
+	padding-right: 70px;
+}
+.user-bar {
+	background-color: #916e31;
+	border-left:3px solid #bda57e;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 70px;
 }
 .menu-bar {
 	ul {
@@ -40,5 +51,62 @@ html,body {
 		span {
 			color:#ffffff;
 		}
+	}
+}
+.profile-image {
+	display: block;
+	z-index: 100;
+	cursor: pointer;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	right: 5px;
+	top: 15px;	
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-border-radius: 99em;
+	-moz-border-radius: 99em;
+	border-radius: 99em;
+	border: 4px solid #eee;
+	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);  
+}
+
+.right-submenu {
+	background-color: #a37e39;
+	position: absolute;
+	box-shadow: -3px 0 2px rgba(0, 0, 0, 0.3);
+	width: 180px;
+	height: 100%;	
+	margin: 0;
+	padding: 0;	
+	right: 70px;
+	top: 0;	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=96)";
+  	filter: alpha(opacity=96);  
+  	-moz-opacity: 0.96;
+  	-khtml-opacity: 0.96;
+  	opacity: 0.96;
+  	z-index: 20; 
+  	.submenu-heading {
+  		text-align: center;
+  	}
+	ul {
+		line-height: 40px;
+		margin: 0;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: #523819;
+		font-weight: bold;
+		vertical-align:middle;
+		span {
+			color: #523819;	
+			vertical-align:middle;		
+		}
+		
+	}
+	ul:hover {
+		background: #29732f;
+		cursor: pointer;
 	}
 }

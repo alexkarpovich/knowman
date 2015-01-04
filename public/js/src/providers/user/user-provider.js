@@ -16,10 +16,10 @@ module.exports = function() {
 				userData.currentUser = currentUser;
 			},
 			getCsrf: function() {
-				return userData.csrf;
+				return userData.csrftoken;
 			},
 			setCsrf: function(csrf) {
-				userData.csrf = csrf;
+				userData.csrftoken = csrf;
 			}
 		};
 	};
