@@ -1,14 +1,19 @@
 <div class="menu-bar">
-	<ul onclick="location.href='/'">
-		<a href="/"><span class="fa fa-home fa-lg" aria-hidden="true"></span></a>
+	<ul ui-sref="home">
+		<a href="/"><span class="fa fa-home fa-2x" aria-hidden="true"></span></a>
+	</ul>
+	<ul ng-click="showSubmenu()">
+		<span class="fa fa-bars fa-2x" aria-hidden="true"></span>
 	</ul>
 	<ul>
-		<span class="fa fa-bars fa-lg" aria-hidden="true"></span>
-	</ul>
-	<ul>
-		<span class="fa fa-unlock-alt fa-lg" aria-hidden="true"></span>
+		<span class="fa fa-unlock-alt fa-2x" aria-hidden="true"></span>
 	</ul>
 	<ul class="settings">
-		<span class="fa fa-wrench fa-lg" aria-hidden="true"></span>
+		<span class="fa fa-wrench fa-2x" aria-hidden="true"></span>
 	</ul>
+	<div class="left-submenu" ng-show="isSubmenuShowd">
+		<h4 class="submenu-heading"> Main menu </h4>
+		<ul ui-sref="user.signup"><span class="fa fa-child fa-2x"></span>Sign up</ul>
+		<ul ui-sref="user.login"><span class="fa fa-sign-in fa-2x"></span>Log in</ul>
+	</div>
 </div>

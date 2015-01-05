@@ -39,7 +39,6 @@ html,body {
 		margin:0;
 		line-height: 50px;
 		text-align:center;
-		font-size:1.6em;
 		cursor:pointer;
 		span {
 			color:#e8ede9;
@@ -91,6 +90,9 @@ html,body {
   	.submenu-heading {
   		text-align: center;
   	}
+  	.username {
+  		text-align: center;
+  	}
 	ul {
 		line-height: 40px;
 		margin: 0;
@@ -101,6 +103,7 @@ html,body {
 		vertical-align:middle;
 		span {
 			color: #052e08;	
+			font-size: 1.3em;
 			vertical-align:middle;		
 		}
 		
@@ -108,5 +111,51 @@ html,body {
 	ul:hover {
 		background: #29732f;
 		cursor: pointer;
+	}
+}
+
+.left-submenu {
+	background-color: #a37e39;
+	position: absolute;
+	box-shadow: -3px 0 2px rgba(0, 0, 0, 0.3);
+	width: 180px;
+	height: 100%;	
+	margin: 0;
+	padding: 0;	
+	left: 70px;
+	top: 0;	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=96)";
+  	filter: alpha(opacity=96);  
+  	-moz-opacity: 0.96;
+  	-khtml-opacity: 0.96;
+  	opacity: 0.96;
+  	z-index: 20; 
+  	.submenu-heading {
+  		text-align: center;
+  	}
+  	ul {
+		line-height: 40px;
+		margin: 0;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: #052e08;
+		font-weight: bold;
+		vertical-align:middle;
+		text-align: left;
+		span {
+			color: #052e08;	
+			text-shadow: none;
+			font-size: 1.3em;
+			vertical-align:middle;		
+		}
+		
+	}
+	ul:hover {
+		background: #29732f;
+		cursor: pointer;
+		span {
+			color: #052e08;	
+			text-shadow: none;
+		}
 	}
 }
