@@ -114,7 +114,7 @@ gulp.task('watch', ['browserify'], function (done) {
 gulp.task('livereload', function () {
     var lrserver = plugins.livereload();
 
-    gulp.watch('./js/src/**/*').on('change', function(file) {
+    gulp.watch('./js/src/**/*.js').on('change', function(file) {
         lrserver.changed(file.path);
     });
 });

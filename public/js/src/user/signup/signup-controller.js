@@ -17,7 +17,7 @@ module.exports = ['$scope', '$state','$http', '$cookies', 'userData',
 				method: 'POST',
 				data: $scope.signupData
 			}).success(function(data) {
-				userData.setCurrentUser(data.user)
+				userData.setCurrentUser(data.user);
 				$state.go('home');
 			}).error(function(data){
 				console.log(data);

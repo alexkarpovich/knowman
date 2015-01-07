@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = ['$scope', '$state', '$http', 
-	function ($scope, $state, $http) {
-		
+module.exports = ['$scope', '$state', '$http', 'userData',
+	function ($scope, $state, $http, userData) {
+		$scope.currentUser = userData.getCurrentUser();
 	}
 ];

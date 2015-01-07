@@ -32,8 +32,8 @@ domready(function(){
 	    function($http, $cookies, userData) {
 	    	$http.defaults.headers.post['X-CSRFToken'] = userData.getCsrf();	 	            
 	    }
-   	]);;
+   	]);
 
-	angular.bootstrap(document, ['App'])	
+	angular.bootstrap(document, ['App']);
 });
 

@@ -1,2 +1,4 @@
 /.vagrant/
-/*/**/*.pyc
+*.pyc
+/.idea
+/knowman/static*

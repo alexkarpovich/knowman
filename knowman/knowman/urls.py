@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('index.urls')),
     url(r'^join/', include('join.urls')),
+    url(r'', include('social_auth.urls')),
 )

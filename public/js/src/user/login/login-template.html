@@ -13,7 +13,13 @@
 			    <label>
 			      <input type="checkbox" ng-model="loginData.rememberme"> Remember me
 			    </label>
-			</div>			
+			</div>
+            <div class="oauth-links">
+                <a href="{{ oauth.vk }}" class="btn btn-default btn-md"><span class="fa fa-vk fa-2x"></span></a>
+                <a href="{{ oauth.facebook }}" class="btn btn-default btn-md"><span class="fa fa-facebook fa-2x"></span></a>
+                <a href="{{ oauth.twitter }}" class="btn btn-default btn-md"><span class="fa fa-twitter fa-2x"></span></a>
+                <a href="{{ oauth.google }}" class="btn btn-default btn-md"><span class="fa fa-google fa-2x"></span></a>
+            </div>
 		</div>
 		<div class="panel-footer">
 			<input type="submit" class="btn btn-success btn-md btn-block" value="Log in"/>

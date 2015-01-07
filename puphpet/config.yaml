@@ -209,6 +209,7 @@ python:
     install: '1'
     packages:
         - django@1.7
+        - django-oauth-toolkit
     versions:
         ywwHBY79QDOn:
             version: 3.4.0

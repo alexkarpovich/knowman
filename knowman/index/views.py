@@ -7,7 +7,7 @@ def index(request):
 	if not request.user.is_anonymous():
 		currentUser = getUserArray(request.user)
 	else:
-		currentUser = '{}'
+		currentUser = 'null'
 	cont_vars = {
 		'currentUser': currentUser
 	}

@@ -8,6 +8,13 @@ module.exports = ['$scope', '$state', '$http', 'userData',
 			rememberme: false
 		};
 
+		$scope.oauth = {
+			vk:'/login/vk-oauth/',
+			facebook: '/login/facebook/',
+			twitter: '/login/twitter/',
+			google: '/login/google-oauth2/'
+		};
+
 		$scope.login = function() {
 			$http({
 				url:'/join/login/',

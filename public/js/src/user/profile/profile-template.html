@@ -1,1 +1,12 @@
-Profile page
+<div class="profile" ng-show="currentUser">
+    <h3 class="text-center">Profile page</h3>
+    <dl class="dl-horizontal">
+        <dt>Username</dt><dd>{{ currentUser.username }}</dd>
+        <dt>Email</dt><dd>{{ currentUser.email }}</dd>
+        <dt>First name</dt><dd>{{ currentUser.first_name }}</dd>
+        <dt>Last name</dt><dd>{{ currentUser.last_name }}</dd>
+        <dt>Is staff</dt><dd>{{ currentUser.is_staff }}</dd>
+        <dt>Is superuser</dt><dd>{{ currentUser.is_superuser }}</dd>
+        <dt>Date joined</dt><dd>{{ currentUser.date_joined }}</dd>
+    </dl>
+</div>
