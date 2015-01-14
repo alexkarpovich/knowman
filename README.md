@@ -1,6 +1,6 @@
 # knowman
 To run project do following steps:
-1. vagrant up
+1. vagrant up\n
 2. vagrant provision
 3. vagrant ssh
 4. On the VM move to /var/www/knowman/api/ and run python manage.py migrate
