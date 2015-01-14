@@ -13,7 +13,7 @@ module.exports = ['$scope', '$state','$http', '$cookies', 'userData',
 
 		$scope.signup = function() {
 			$http({
-				url: '/join/signup/',
+				url: '/account/signup/',
 				method: 'POST',
 				data: $scope.signupData
 			}).success(function(data) {

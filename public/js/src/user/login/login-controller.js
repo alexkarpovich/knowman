@@ -17,7 +17,7 @@ module.exports = ['$scope', '$state', '$http', 'userData',
 
 		$scope.login = function() {
 			$http({
-				url:'/join/login/',
+				url:'/account/login/',
 				method: 'POST',
 				data: $scope.loginData
 			}).success(function(data){

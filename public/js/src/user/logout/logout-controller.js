@@ -3,7 +3,7 @@
 module.exports = ['$state', '$http','userData',
 	function($state, $http, userData) {
 		$http({
-			url: '/join/logout/',
+			url: '/account/logout/',
 			method: 'post',
 			data:{}
 		}).success(function(data){
