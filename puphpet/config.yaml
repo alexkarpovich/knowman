@@ -202,14 +202,15 @@ ruby:
             version: ''
 nodejs:
     install: '1'
-    npm_packages: 
-        - gulp@3.8.10
+    npm_packages:
         - bower@1.3.12
 python:
     install: '1'
     packages:
         - django@1.7
-        - django-oauth-toolkit
+        - django-social-auth
+        - django-cors-headers
+        - djubby
     versions:
         ywwHBY79QDOn:
             version: 3.4.0

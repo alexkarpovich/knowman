@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^$', include('index.urls')),
     url(r'^account/', include('account.urls')),
     url(r'', include('social_auth.urls')),
+    (r'^(.*)', 'djubby.dispatcher'),
 )

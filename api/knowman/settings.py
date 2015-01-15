@@ -164,3 +164,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + '/static/'
+
+import log
+
+DJUBBY_CONF = "knowman/config.n3"
+from djubby import Configuration
+conf = Configuration(DJUBBY_CONF)
