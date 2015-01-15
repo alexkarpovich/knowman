@@ -6,17 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{% static 'styles/css/styles.css' %}" rel="stylesheet"/>
-    <script type="text/javascript" src="{% static 'js/dist/lib.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/dist/main.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'js/dist/lib.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/dist/main.js' %}"></script>-->
     <script type="text/javascript">
       window.knowman = {
         currentUser: JSON.parse('{{ currentUser | safe }}'),
         csrftoken: '{{csrf_token}}'
       };
+      var head = document.getElementsByTagName('HEAD').item(0);
+      var main;
+      var loading;
+
+      function sleep(ms) {
+        ms += new Date().getTime();
+        while (new Date() < ms){}
+      }
+
+      function loadjs(filename, callback) {
+          var js = document.createElement('script');
+          js.onload = callback;
+          js.src = filename;
+          return js
+      }
+      function documentLoaded () {
+          console.log('Document loaded');
+          main = document.getElementsByClassName('main').item(0);
+          loading = document.getElementById('loading');
+          load(true);
+          var libjs = loadjs("{% static 'js/dist/lib.js' %}", libjsLoaded);
+          head.appendChild(libjs);
+      }
+
+      function load(state) {
+          if (state) {
+              loading.style.display = 'block';
+          } else {
+              loading.style.display = 'none';
+          }
+      }
+
+      function libjsLoaded() {
+          console.log('Lib.js loaded');
+          sleep(3000);
+          var mainjs = loadjs("{% static 'js/dist/main.js' %}", function() {
+              console.log('Main.js loaded');
+              load(false);
+          });
+          head.appendChild(mainjs);
+      }
+
+      document.onreadystatechange = function() {
+            console.log('Document loading....');
+            if (this.readyState == 'complete') documentLoaded()
+      }
     </script>
     <title>Knowman project</title>    
   </head>
   <body>
+    <div id="loading">
+        <div>
+            <i class="fa fa-cog fa-spin"></i>
+            <p>Loading...</p>
+        </div>
+    </div>
     <div class="main row">
       <div class="side-menu">
         <left-menu></left-menu>

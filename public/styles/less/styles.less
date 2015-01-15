@@ -5,12 +5,34 @@ html,body {
 	height:100%;
 }
 
+#loading {
+  background-color: #133615;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 5em;
+  opacity: 0.85;
+  z-index: 1000;
+  color: #E3E3E3;
+  div {
+	position: relative;
+	float:left;
+	left:50%;
+	top:40%;
+	text-align: center;
+	p {
+	  font-size: 0.3em;
+	}
+  }
+}
+
 .main, .side-menu,.content,.user-bar {
 	height: 100%;
 }
 .main {
 	margin:0;
 	position:relative;
+  	z-index: 10;
 }
 .side-menu {
 	width: 70px;
