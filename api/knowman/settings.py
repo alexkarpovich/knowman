@@ -86,6 +86,7 @@ INSTALLED_APPS = (
     'social_auth',
     'index',
     'account',
+    'base',
 )
 
 AUTHENTICATION_BACKENDS = (

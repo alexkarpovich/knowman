@@ -1,0 +1,35 @@
+<div class="col-md-offset-1 col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">Accounts list</div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <thead>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Is Staff</th>
+                    <th>Is Superuser</th>
+                    <th>Date joined</th>
+                    <th>Last login</th>
+                </thead>
+                <tbody ng-repeat="account in account_list">
+                    <td>{{ account.id }}</td>
+                    <td>{{ account.username }}</td>
+                    <td>{{ account.email }}</td>
+                    <td>{{ account.first_name }}</td>
+                    <td>{{ account.last_name }}</td>
+                    <td>{{ account.is_staff }}</td>
+                    <td>{{ account.is_superuser }}</td>
+                    <td>{{ account.date_joined }}</td>
+                    <td>{{ account.last_login }}</td>
+                    <td class="actions">
+                        <a ui-sref="admin.user.edit({id:account.id})" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <a href="#" class="btn btn-default"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

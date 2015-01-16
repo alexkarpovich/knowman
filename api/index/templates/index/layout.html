@@ -47,7 +47,6 @@
 
       function libjsLoaded() {
           console.log('Lib.js loaded');
-          sleep(3000);
           var mainjs = loadjs("{% static 'js/dist/main.js' %}", function() {
               console.log('Main.js loaded');
               load(false);

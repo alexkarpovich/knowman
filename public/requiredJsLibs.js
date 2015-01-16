@@ -17,6 +17,7 @@ module.exports = function (basePath, min) {
         //basePath + '/ng-file-upload/angular-file-upload' + target + '.js',
         basePath + '/lodash/dist/lodash' + target + '.js',
         basePath + '/angular-bootstrap/ui-bootstrap-tpls' + target + '.js',
+        basePath + '/d3/d3' + target + '.js',
         //basePath + '/angular-translate/angular-translate' + target + '.js',
         //basePath + '/messageformat/messageformat.js',
         //basePath + '/messageformat/locale/en.js',

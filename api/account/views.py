@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core import serializers
+from django.views.generic import ListView
+from base.views import JSONResponseMixin
 import json
-import urllib2
 
 def signup(request):
 	if request.method == 'POST':
@@ -54,6 +55,10 @@ def logout(request):
 def profile(request):
 	print 'profile'
 
+class AccountListView(JSONResponseMixin, ListView):
+	model = User
+	def render_to_response(self, context, **response_kwargs):
+		return self.render_to_json_response(context, **response_kwargs)
 
 def getUserArray(userModel):
 	baseData = serializers.serialize('json', [userModel])

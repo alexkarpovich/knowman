@@ -6,6 +6,7 @@ var angular = require('angular'),
 require('./providers/provider');
 require('./menu/menu');
 require('./user/user');
+require('./admin/admin');
 
 domready(function(){
 	angular.module('App', [
@@ -14,7 +15,8 @@ domready(function(){
 		'ngCookies',
 		'Provider',
 		'Menu',
-		'User'
+		'User',
+		'Admin'
 	])
 	.config(['$stateProvider', '$httpProvider', '$cookiesProvider', 'userDataProvider',
 		function ($stateProvider, $httpProvider, $cookies, userDataProvider) {	
