@@ -16,7 +16,7 @@ module.exports = ['$scope', '$state', '$http',
                 method: 'POST',
                 data: $scope.data
             }).success(function(data){
-
+                $state.go('admin.user.list')
             }).error(function(data) {
 
             });

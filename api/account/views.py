@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core import serializers
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from base.views import JSONResponseMixin
 import json
 
@@ -59,6 +61,21 @@ class AccountListView(JSONResponseMixin, ListView):
 	model = User
 	def render_to_response(self, context, **response_kwargs):
 		return self.render_to_json_response(context, **response_kwargs)
+
+class AccountAddView(CreateView):
+	model = User
+	success_url = reverse_lazy('account:list')
+
+class AccountEditView(JSONResponseMixin, UpdateView):
+	model = User
+	success_url = reverse_lazy('account:list')
+
+	def render_to_response(self, context, **response_kwargs):
+		return self.render_to_json_response(context, **response_kwargs)
+
+class AccountDeleteView(DeleteView):
+	model = User
+	success_url = reverse_lazy('account:list')
 
 def getUserArray(userModel):
 	baseData = serializers.serialize('json', [userModel])
