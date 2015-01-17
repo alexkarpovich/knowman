@@ -29,7 +29,7 @@ module.exports = function (basePath, min) {
         basePath + '/angular-ui-router/release/angular-ui-router' + target + '.js',
         basePath + '/alertify.js/lib/alertify' + target + '.js',
         //basePath + '/angular-ui-tree/dist/angular-ui-tree' + target + '.js',
-        //basePath + '/restangular/dist/restangular' + target + '.js',
+        basePath + '/restangular/dist/restangular' + target + '.js',
         //basePath + '/angulartics/dist/angulartics.min.js',
         //basePath + '/textAngular/dist/textAngular-sanitize.min.js',
         //basePath + '/textAngular/dist/textAngular.min.js'

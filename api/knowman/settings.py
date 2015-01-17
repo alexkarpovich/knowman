@@ -74,6 +74,11 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10
+}
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -83,6 +88,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'social_auth',
     'index',
     'account',
@@ -165,9 +171,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + '/static/'
-
-import log
-
-DJUBBY_CONF = "knowman/config.n3"
-from djubby import Configuration
-conf = Configuration(DJUBBY_CONF)

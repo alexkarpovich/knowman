@@ -1,12 +1,11 @@
-from django.conf.urls import patterns, include, url
-from django.conf import settings
-from django.conf.urls.static import static
+from django.conf.urls import url, include
+from rest_framework import routers
 from django.contrib import admin
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', include('index.urls', namespace='index')),
     url(r'^account/', include('account.urls', namespace='account')),
     url(r'', include('social_auth.urls')),
-    (r'^(.*)', 'djubby.dispatcher'),
-)
+    url(r'^api/', include('rest_framework.urls', namespace='rest_framework'))
+]

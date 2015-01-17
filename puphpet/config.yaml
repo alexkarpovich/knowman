@@ -211,6 +211,7 @@ python:
         - django-social-auth
         - django-cors-headers
         - djubby
+        - djangorestframework
     versions:
         ywwHBY79QDOn:
             version: 3.4.0

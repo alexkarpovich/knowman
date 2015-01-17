@@ -12,6 +12,7 @@ domready(function(){
 	angular.module('App', [
 		'ui.router',
 		'ui.bootstrap',
+		'restangular',
 		'ngCookies',
 		'Provider',
 		'Menu',
@@ -19,9 +20,9 @@ domready(function(){
 		'Admin'
 	])
 	.config(['$stateProvider', '$httpProvider', '$cookiesProvider', 'userDataProvider',
-		function ($stateProvider, $httpProvider, $cookies, userDataProvider) {	
-			$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-	        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';	
+		function ($stateProvider, $httpProvider, $cookies, userDataProvider) {
+	        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+			$httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
 			userDataProvider.userData(window.knowman);
 			$stateProvider
 				.state('home', {
@@ -32,7 +33,7 @@ domready(function(){
 	])
 	.run(['$http','$cookies', 'userData',
 	    function($http, $cookies, userData) {
-	    	$http.defaults.headers.post['X-CSRFToken'] = userData.getCsrf();	 	            
+			$http.defaults.headers.common['X-CSRFToken'] = userData.getCsrf();
 	    }
    	]);
 

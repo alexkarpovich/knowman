@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = ['$scope','$state', '$stateParams', '$http',
-    function($scope, $state, $stateParams, $http) {
+module.exports = ['$scope','$state', '$stateParams', '$http', 'userData', 'Restangular',
+    function($scope, $state, $stateParams, $http, userData, Restangular) {
         $scope.data = {
             username: '',
             email: '',
@@ -10,15 +10,16 @@ module.exports = ['$scope','$state', '$stateParams', '$http',
             password1: '',
             password2: ''
         };
-        $http({
-            url: '/account/edit/'+$stateParams.id+'/',
-            method: 'GET',
-            data: $scope.data
-        }).success(function(data){
-            console.log(data);
+        var Account = Restangular.one('account/'+$stateParams.id);
+        Account.get().then(function(data){
             $scope.data = data;
-        }).error(function(data){
-
         });
+        $scope.edit_user = function() {
+            $scope.data
+                .put()
+                .then(function(){
+                    $state.go('admin.user.list');
+                });
+        }
     }
 ];

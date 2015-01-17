@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = ['$scope', '$state', '$http',
-    function($scope, $state, $http) {
+module.exports = ['$scope', '$state', '$http','Restangular',
+    function($scope, $state, $http, Restangular) {
         $scope.data = {
             username: '',
             email: '',
@@ -10,15 +10,11 @@ module.exports = ['$scope', '$state', '$http',
             password1: '',
             password2: ''
         };
-        $scope.add_user = function() {
-            $http({
-                url:'/account/add/',
-                method: 'POST',
-                data: $scope.data
-            }).success(function(data){
-                $state.go('admin.user.list')
-            }).error(function(data) {
 
+        $scope.add_user = function() {
+            var Account = Restangular.all('account/');
+            Account.post($scope.data).then(function(){
+                $state.go('admin.user.list');
             });
         }
     }

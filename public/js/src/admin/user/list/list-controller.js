@@ -1,15 +1,11 @@
 'use strict';
 
-module.exports = ['$scope', '$state', '$http', 'userData',
-    function($scope, $state, $http, userData) {
-        $http({
-            url: '/account/list/',
-            method: 'GET'
-        }).success(function(data) {
-            console.log(data)
-            $scope.account_list = data.object_list;
-        }).error(function(data) {
-            console.log('Admin.User.List Error');
+module.exports = ['$scope', '$state', '$http', 'userData', 'Restangular',
+    function($scope, $state, $http, userData, Restangular) {
+
+        var Account = Restangular.one('account');
+        Account.get().then(function(data){
+            $scope.account_list = data.results;
         });
     }
 ];
