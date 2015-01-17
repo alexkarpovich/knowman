@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from django.contrib.auth import logout as auth_logout
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from base.serializers import UserSerializer, GroupSerializer
+from base.views import BaseListCreateView
 
 
 def logout(request):
@@ -12,7 +13,8 @@ def logout(request):
     return JsonResponse({}, status=200)
 
 
-class AccountListCreateView(ListCreateAPIView):
+class AccountListCreateView(BaseListCreateView):
+    model = User
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

@@ -8,7 +8,9 @@ module.exports = ['$scope', '$state', '$http','Restangular',
             first_name: '',
             last_name: '',
             password1: '',
-            password2: ''
+            password2: '',
+            is_staff: false,
+            is_superuser: false
         };
 
         $scope.add_user = function() {

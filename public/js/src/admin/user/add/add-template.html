@@ -21,6 +21,16 @@
 			<div class="form-group">
 				<input type="password" ng-model="data.password2" class="form-control" placeholder="Confirm password" required/>
 			</div>
+            <div class="checkbox">
+				<label>
+                  <input type="checkbox" ng-model="data.is_staff">Staff
+				</label>
+            </div>
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" ng-model="data.is_superuser">Superuser
+				</label>
+            </div>
 		</div>
 		<div class="panel-footer">
 			<input type="submit" class="btn btn-warning btn-md btn-block" value="Add new user"/>

@@ -1,10 +1,26 @@
 <div class="col-md-offset-0 col-md-12">
+    <h3 class="text-center">Accounts list</h3>
     <div class="panel panel-default">
-        <div class="panel-heading">Accounts list</div>
-        <div class="panel-body">
+        <div class="panel-heading">
             <div>
-                <a ui-sref="admin.user.add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>Add new user</a>
+                <div class="col-sm-2">
+                    <a ui-sref="admin.user.add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>Add new user</a>
+                </div>
+                <div class="input-group col-sm-2">
+                  <span class="input-group-addon" id="basic-addon1">Sort by:</span>
+                  <select class="form-control input-sm" ng-change="go()" ng-model="options.sort_by">
+                      <option value="id">Id</option>
+                      <option value="username">Username</option>
+                      <option value="email">Email</option>
+                      <option value="first_name">First name</option>
+                      <option value="last_name">Last name</option>
+                      <option value="date_joined">Joined</option>
+                      <option value="last_login">Last login</option>
+                  </select>
+                </div>
             </div>
+        </div>
+        <div class="panel-body">
             <table class="table table-hover">
                 <thead>
                     <th>Id</th>
@@ -17,7 +33,7 @@
                     <th>Joined</th>
                     <th>Last login</th>
                 </thead>
-                <tbody ng-repeat="account in account_list">
+                <tbody ng-repeat="account in data.results">
                     <td>{{ account.pk }}</td>
                     <td>{{ account.username }}</td>
                     <td>{{ account.email }}</td>
@@ -33,6 +49,15 @@
                     </td>
                 </tbody>
             </table>
+        </div>
+        <div class="panel-footer">
+            <nav>
+              <ul class="pager" ng-show="data">
+                <li ng-click="prev_page()"><a href="#">Previous</a></li>
+                <li><a href="#">{{ options.page }}</a></li>
+                <li ng-click="next_page()"><a href="#">Next</a></li>
+              </ul>
+            </nav>
         </div>
     </div>
 </div>
