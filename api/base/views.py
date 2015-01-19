@@ -14,9 +14,3 @@ class BaseListCreateView(ListCreateAPIView):
         qs = super(BaseListCreateView,self).get_queryset().order_by(sort_by)
         return qs
 
-    def get_context_data(self, **kwargs):
-        context = super(BaseListCreateView, self).get_context_data(**kwargs)
-        sort_by = self.request.GET.get('sort_by')
-        fields = self.model.get_all_field_names()
-        context['sort_by'] = 'id' if sort_by not in fields else sort_by
-        return context

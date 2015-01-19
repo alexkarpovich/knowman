@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <table class="grid-options">
+            <tr>
+                <td>
+                    <a ui-sref="{{ uiRef }}.add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>Add new
+                        user</a>
+                </td>
+                <td>
+                    <div class="input-group" style="width:200px">
+                        <span class="input-group-addon" id="basic-addon1">Sort by:</span>
+                        <select class="form-control input-sm" ng-change="go()" ng-model="params.sort_by">
+                            <option ng-repeat="(key,value) in data.results[0]" value="{{ key }}">{{ key }}</option>
+                        </select>
+                    </div>
+                </td>
+                <td width="100%"></td>
+                <td>
+                    <div class="input-group" style="width:130px">
+                        <span class="input-group-addon" id="basic-addon1">Count:</span>
+                        <select class="form-control input-sm" ng-change="go()" ng-model="params.count">
+                            <option ng-repeat="val in count_vals" ng-selected="val==params.count"
+                                    value="{{ val }}">{{ val }}</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead ng-repeat="field in data.fields">
+            <th>{{ field }}</th>
+            </thead>
+            <tbody ng-repeat="object in data.results">
+                <td ng-repeat="(key,value) in object">{{ value }}</td>
+                <td class="actions">
+                    <a ui-sref="{{ uiRef }}.edit({id:object.pk})" class="btn btn-default"><i
+                            class="glyphicon glyphicon-pencil"></i></a>
+                    <a ui-sref="{{ uiRef }}.delete({id:account.pk})" class="btn btn-default"><i
+                            class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        <nav>
+            <ul class="pager" ng-show="data">
+                <li ng-click="prev_page()"><a href="#">Previous</a></li>
+                <li><a href="#">{{ params.page }}</a></li>
+                <li ng-click="next_page()"><a href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
