@@ -3,10 +3,10 @@
 module.exports = ['$stateProvider',
     function($stateProvider) {
         $stateProvider
-            .state('admin.user.edit', {
+            .state('admin.group.edit', {
                 url: '/edit/{id:[0-9]{1,8}}',
                 template: require('./edit-template.html'),
-                controller: 'Admin.User.EditController'
+                controller: 'Admin.Group.EditController'
             });
     }
 ];

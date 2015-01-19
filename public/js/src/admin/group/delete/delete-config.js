@@ -3,9 +3,9 @@
 module.exports = ['$stateProvider',
     function($stateProvider) {
         $stateProvider
-            .state('admin.user.delete',{
+            .state('admin.group.delete',{
                 url:'/delete/{id:[0-9]{1,8}}',
-                controller:'Admin.User.DeleteController'
+                controller:'Admin.Group.DeleteController'
             });
     }
 ];

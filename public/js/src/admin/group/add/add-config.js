@@ -3,10 +3,10 @@
 module.exports = ['$stateProvider',
     function($stateProvider) {
         $stateProvider
-            .state('admin.user.add',{
+            .state('admin.group.add',{
                 url: '/add',
                 template: require('./add-template.html'),
-                controller: 'Admin.User.AddController'
+                controller: 'Admin.Group.AddController'
             });
     }
 ];

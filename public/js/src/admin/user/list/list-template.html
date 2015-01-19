@@ -2,23 +2,36 @@
     <h3 class="text-center">Accounts list</h3>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <div>
-                <div class="col-sm-2">
-                    <a ui-sref="admin.user.add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>Add new user</a>
-                </div>
-                <div class="input-group col-sm-2">
-                  <span class="input-group-addon" id="basic-addon1">Sort by:</span>
-                  <select class="form-control input-sm" ng-change="go()" ng-model="options.sort_by">
-                      <option value="id">Id</option>
-                      <option value="username">Username</option>
-                      <option value="email">Email</option>
-                      <option value="first_name">First name</option>
-                      <option value="last_name">Last name</option>
-                      <option value="date_joined">Joined</option>
-                      <option value="last_login">Last login</option>
-                  </select>
-                </div>
-            </div>
+            <table class="grid-options">
+                <tr>
+                    <td>
+                        <a ui-sref="admin.user.add" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>Add new user</a>
+                    </td>
+                    <td>
+                        <div class="input-group" style="width:200px">
+                          <span class="input-group-addon" id="basic-addon1">Sort by:</span>
+                          <select class="form-control input-sm" ng-change="go()" ng-model="params.sort_by">
+                              <option value="id">Id</option>
+                              <option value="username">Username</option>
+                              <option value="email">Email</option>
+                              <option value="first_name">First name</option>
+                              <option value="last_name">Last name</option>
+                              <option value="date_joined">Joined</option>
+                              <option value="last_login">Last login</option>
+                          </select>
+                        </div>
+                    </td>
+                    <td width="100%"></td>
+                    <td>
+                        <div class="input-group" style="width:130px">
+                          <span class="input-group-addon" id="basic-addon1">Count:</span>
+                          <select class="form-control input-sm" ng-change="go()" ng-model="params.count">
+                              <option ng-repeat="val in count_vals" ng-selected="val==params.count" value="{{ val }}">{{ val }}</option>
+                          </select>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="panel-body">
             <table class="table table-hover">
@@ -54,7 +67,7 @@
             <nav>
               <ul class="pager" ng-show="data">
                 <li ng-click="prev_page()"><a href="#">Previous</a></li>
-                <li><a href="#">{{ options.page }}</a></li>
+                <li><a href="#">{{ params.page }}</a></li>
                 <li ng-click="next_page()"><a href="#">Next</a></li>
               </ul>
             </nav>
