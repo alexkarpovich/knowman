@@ -22,3 +22,12 @@ class AccountListCreateView(BaseListCreateView):
 class AccountRUDView(RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class GroupListCreateView(BaseListCreateView):
+    model = Group
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+class GroupRUDView(RetrieveUpdateDestroyAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer

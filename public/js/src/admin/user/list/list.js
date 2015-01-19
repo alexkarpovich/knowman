@@ -4,4 +4,4 @@ var angular = require('angular');
 
 angular.module('Admin.User.List', [])
     .config(require('./list-config'))
-    .controller('ListController', require('./list-controller'));
+    .controller('Admin.User.ListController', require('./list-controller'));

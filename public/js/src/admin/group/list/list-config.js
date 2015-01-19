@@ -1,12 +1,12 @@
-'use strict';
+'use strcit';
 
 module.exports = ['$stateProvider',
     function($stateProvider) {
         $stateProvider
-            .state('admin.user.list',{
-                url: '/list?page&sort_by',
+            .state('admin.group.list', {
+                url:'/list',
                 template: require('./list-template.html'),
-                controller: 'Admin.User.ListController'
+                controller: 'Admin.Group.ListController'
             });
     }
 ];
