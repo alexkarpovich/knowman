@@ -8,6 +8,7 @@ require('./menu/menu');
 require('./user/user');
 require('./admin/admin');
 require('./directives/directives');
+require('./filters/filters');
 
 domready(function(){
 	angular.module('App', [
@@ -17,6 +18,7 @@ domready(function(){
 		'ngCookies',
 		'Provider',
 		'Directives',
+		'Filters',
 		'Menu',
 		'User',
 		'Admin'

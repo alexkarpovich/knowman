@@ -5,7 +5,7 @@ module.exports = ['$scope','$state', '$stateParams','Restangular',
         $scope.data = {
             name: ''
         };
-        var Group = Restangular.one('account/group/'+$stateParams.id);
+        var Group = Restangular.one('account/group/'+$stateParams.pk+'/');
         Group.get().then(function(data){
             $scope.data = data;
         });

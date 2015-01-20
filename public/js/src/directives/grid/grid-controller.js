@@ -6,7 +6,7 @@ module.exports = ['$scope', '$state', '$stateParams', 'Restangular',
         $scope.count_vals = [5,7,10,15,20,30,40,50];
         $scope.params = {
             page: $stateParams.page?$stateParams.page:1,
-            sort_by: $stateParams.sort_by?$stateParams.sort_by:'id',
+            sort_by: $stateParams.sort_by?$stateParams.sort_by:'pk',
             count: $stateParams.count?$stateParams.count:7
         }
 

@@ -6,7 +6,8 @@ module.exports = [
             restrict: 'E',
             scope: {
                 url:'@',
-                uiRef:'@'
+                uiRef:'@',
+                name:'@'
             },
             template: require('./grid-template.html'),
             replace: false,

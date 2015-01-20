@@ -54,6 +54,8 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 SESSION_COOKIE_AGE = 360
+SOCIAL_AUTH_EXPIRATION = False
+SOCIAL_AUTH_SESSION_EXPIRATION = False
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',

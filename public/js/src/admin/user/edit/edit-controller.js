@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = ['$scope','$state', '$stateParams', 'Restangular',
-    function($scope, $state, $stateParams, $http, userData, Restangular) {
+    function($scope, $state, $stateParams, Restangular) {
         $scope.data = {
             username: '',
             email: '',
@@ -12,7 +12,7 @@ module.exports = ['$scope','$state', '$stateParams', 'Restangular',
             is_staff: false,
             is_superuser: false
         };
-        var Account = Restangular.one('account/'+$stateParams.id);
+        var Account = Restangular.one('account/'+$stateParams.pk);
         Account.get().then(function(data){
             $scope.data = data;
         });

@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = ['$scope', '$state', '$http','Restangular',
-    function($scope, $state, $http, Restangular) {
+module.exports = ['$scope', '$state','Restangular',
+    function($scope, $state, Restangular) {
         $scope.data = {
             username: '',
             email: '',
